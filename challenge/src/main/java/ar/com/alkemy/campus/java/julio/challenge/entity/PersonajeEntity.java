@@ -15,7 +15,7 @@ import java.util.Set;
 public class PersonajeEntity {
 
     @Id
-    @Column
+    //@Column como tienen el mismo nombre no hace falta
     @GeneratedValue(strategy =  GenerationType.SEQUENCE)
     private Long id;
     private String imagen;
@@ -23,12 +23,16 @@ public class PersonajeEntity {
     private String historia;
     private Double peso;
     private Integer edad;
-    private String peliculaSerieAsociada;
 
-    @ManyToMany (cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinTable(name = "personaje_peliculas_series",joinColumns = @JoinColumn(name="personaje_id"),
-    inverseJoinColumns = @JoinColumn(name="peliculas_series_id"))
-    private Set<PeliculaSerieEntity> peliculasSeries= new HashSet<>();
+    //cuando creo un personaje no le voy a poder pasar una lista de peliculas para que la cree
+    //el ownersihp lo tiene pelicula, tiene mas sentido crear una pelicula con los personajes que al revez
+    //por eso la definiciopn esta del lado del pais
+    //buena practica despues agregar endpoints para eliminar independientemente lo que creo.
+    //Defino que el personaje tenga su propia lista donde el participa.
+    @ManyToMany (mappedBy = "personajes", cascade = CascadeType.ALL)
+    private Set<PeliculaEntity> peliculas= new HashSet<>();
+    //cuando creo
 
-
+    public void addPelicula(PeliculaEntity pelicula) {this.peliculas.add(pelicula);}
+    public void revovePelicula(PeliculaEntity pelicula) {this.peliculas.remove(pelicula);}
 }

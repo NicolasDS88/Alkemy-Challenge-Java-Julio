@@ -17,9 +17,11 @@ public class GeneroEntity {
 
     private String imagen;
 
-    @Column(name = "pelicula_serie")
     private String nombre;
 
+    /*
     @OneToMany(mappedBy = "genero")
-    private Set<PeliculaSerieEntity> peliculasSeriesPorGenero= new HashSet<>();
+    private Set<PeliculaEntity> peliculasSeriesPorGenero= new HashSet<>();
+    */
 }
+
