@@ -45,9 +45,17 @@ public class PeliculaEntity {
     //private long personajeId;
 
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genero_id", nullable = false, updatable = false) //false, solo lo uso para obtener info
     private GeneroEntity genero;
-    @Column(name = "genero_id", nullable = false) //de aca consigo el ID del genero
-    private long generoId;
+
+
+
+    //public void addPersonaje(PersonajeEntity personaje) {this.personajes.add(personaje);}
+    //public void removePersonaje(PersonajeEntity personaje) {this.personajes.remove(personaje);}
+
+
+
 }
+
+

@@ -33,6 +33,6 @@ public class PersonajeEntity {
     private Set<PeliculaEntity> peliculas= new HashSet<>();
     //cuando creo
 
-    public void addPelicula(PeliculaEntity pelicula) {this.peliculas.add(pelicula);}
-    public void revovePelicula(PeliculaEntity pelicula) {this.peliculas.remove(pelicula);}
+   // public void addPelicula(PeliculaEntity pelicula) {this.peliculas.add(pelicula);}
+   // public void revovePelicula(PeliculaEntity pelicula) {this.peliculas.remove(pelicula);}
 }

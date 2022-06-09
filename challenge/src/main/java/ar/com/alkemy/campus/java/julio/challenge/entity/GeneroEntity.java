@@ -14,14 +14,11 @@ public class GeneroEntity {
     @Id
     @GeneratedValue(strategy =  GenerationType.SEQUENCE)
     private Long id;
-
     private String imagen;
-
     private String nombre;
 
-    /*
-    @OneToMany(mappedBy = "genero")
-    private Set<PeliculaEntity> peliculasSeriesPorGenero= new HashSet<>();
-    */
+   // @OneToMany(mappedBy = "genero")
+   // private Set<PeliculaEntity> peliculasPorGenero= new HashSet<>();
+
 }
 
